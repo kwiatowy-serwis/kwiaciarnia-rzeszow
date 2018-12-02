@@ -21,11 +21,6 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 
 Route::get('/flower', function () {
 
-    $flowers = \App\Flower::all();
-    dump($flowers);
-    die;
-
-
 
     return \App\Http\Resources\Flower::collection(\App\Flower::all());
 });
