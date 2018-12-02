@@ -15,10 +15,15 @@ Route::get('/', function () {
     return view('welcome');
 });
 
-/*
-Route::get('/test', function () {
-    return view('TestController@index');
+//Route::get('/flower', 'FlowerController@index');
+Route::get('/flower', function ()
+{
+    return \App\Http\Resources\Flower::collection(\App\Flower::all());
 });
-*/
 
-Route::get('/test', 'TestController@index');
+Route::post('/flower/', function ()
+{
+    return \App\Http\Resources\Flower::collection(\App\Flower::all());
+});
+
+Route::get('/flower/create', 'FlowerController@create');
