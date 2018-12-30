@@ -24,6 +24,7 @@ class FlowerTableSeeder extends Seeder
             $flowerModel = new \App\Flower();
             $flowerModel->name = $flower;
             $flowerModel->quantity = (int) rand(0, 100);
+            $flowerModel->price = (int) rand(0, 100);
             $flowerModel->save();
         }
     }

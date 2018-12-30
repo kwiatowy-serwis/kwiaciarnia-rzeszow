@@ -19,8 +19,15 @@ Route::middleware('auth:api')->get('/user', function (Request $request) {
 });
 
 
-Route::get('/flower', function () {
+Route::get('/flower', 'FlowerController@index');
+
+Route::post('/flower/order', 'FlowerController@order');
 
 
-    return \App\Http\Resources\Flower::collection(\App\Flower::all());
-});
+
+
+
+//Route::get('/flower', function () {
+//    Route::get('/home', 'HomeController@index')->name('home');
+//     return \App\Http\Resources\Flower::collection(\App\Flower::all());
+//});

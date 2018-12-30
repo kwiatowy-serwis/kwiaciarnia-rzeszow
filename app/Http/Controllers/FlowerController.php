@@ -14,7 +14,30 @@ class FlowerController extends Controller
      */
     public function index()
     {
+        return  \App\Http\Resources\Flower::collection(\App\Flower::all());
+    }
 
+    public function order(Request $request)
+    {
+        $id = $_POST['id'];
+        $quantity = $_POST['quantity'];
+
+        $flower = \App\Flower::find($id);
+
+        if(!$flower || empty($flower))
+        {
+            return ['data' => 'There is no flower with id: ' . $id];
+        }
+
+        if($flower->quantity < $quantity)
+        {
+            return ['data' => 'You want to order more flower than we have. You want '. $quantity . ' but we have ' . $flower->quantity];
+        }
+
+        $flower->quantity -= $quantity;
+        $flower->save();
+
+        return ['data' => 'Your order will be processed'];
     }
 
     /**
@@ -24,24 +47,7 @@ class FlowerController extends Controller
      */
     public function create()
     {
-        // TODO FAKER do not remove
-//        $flowers = "anemon amarylis amarant aster azalia begonia dzwonek bergamotka jaskier kamelii goździk chryzantema kolombina koniczyna stokrotka stokrotka dalia szarotka pierwiosnka  naparstnica frezja gerbera stokrotka mieczyk hibiskus wrzos hiacynt ostrokrzew irys jaśmin ladys pantofel lawenda lilia nagietek majeranek mimoza narcyz orchidea brzoskwinia kwiat piwonia petunia różanecznik róże rozmaryn szałwia słonecznik  oset tymianek tulipan fiołek  cynia";
-//
-//        $flowers = explode(" ", $flowers);
-//
-//        foreach ($flowers as $flower)
-//        {
-//            if($flower == "" || is_null($flowers))
-//            {
-//                continue;
-//            }
-//            $flowerModel = new Flower();
-//            $flowerModel->name = $flower;
-//            $flowerModel->quantity = (int) rand(0, 100);
-//            $flowerModel->save();
-//        }
 
-//        die(__FUNCTION__);
     }
 
     /**

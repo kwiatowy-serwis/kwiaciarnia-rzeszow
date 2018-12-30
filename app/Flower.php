@@ -9,6 +9,7 @@ use Illuminate\Database\Eloquent\Model;
  *
  * @property $name
  * @property $quantity
+ * @property $price
  *
  * @package App
  */
@@ -18,7 +19,8 @@ class Flower extends Model
 
     protected $attributes = [
         'quantity' => 0,
+        'price' => 0,
     ];
 
-    protected $fillable = ['name', 'quantity'];
+    protected $fillable = ['name', 'quantity', 'price'];
 }
