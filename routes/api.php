@@ -14,16 +14,16 @@ use Illuminate\Http\Request;
 */
 
 
-Route::middleware('auth:api')->get('/user', function (Request $request) {
-    return $request->user();
-});
+//Route::middleware('auth:api')->get('/user', function (Request $request) {
+//    return $request->user();
+//});
 
 
 Route::get('/flower', 'FlowerController@index');
 
 Route::post('/flower/order', 'FlowerController@order');
 
-Route::post('/flower/companyPlace', 'FlowerController@companyPlace');
+Route::get('/flower/companyPlace', 'FlowerController@companyPlace');
 
 
 
