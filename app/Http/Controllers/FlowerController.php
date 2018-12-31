@@ -54,7 +54,7 @@ class FlowerController extends Controller
         return ['data' => [
             'city' => 'Rzeszow',
             'street' => 'Rejtana 16',
-            'zip-code' => '35-456',
+            'zip_code' => '35-456',
             'localNumber' => '5',
             'phone' => '456654456'
         ]];
