@@ -23,6 +23,8 @@ Route::get('/flower', 'FlowerController@index');
 
 Route::post('/flower/order', 'FlowerController@order');
 
+Route::post('/flower/companyPlace', 'FlowerController@companyPlace');
+
 
 
 

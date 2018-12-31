@@ -24,6 +24,7 @@ class FlowerController extends Controller
 
         $flower = \App\Flower::find($id);
 
+
         if(!$flower || empty($flower))
         {
             return ['data' => 'There is no flower with id: ' . $id];
@@ -40,69 +41,16 @@ class FlowerController extends Controller
         return ['data' => 'Your order will be processed'];
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    public function companyPlace()
     {
-
+        return ['data' => [
+            'city' => 'Rzeszow',
+            'street' => 'Rejtana 16',
+            'zip-code' => '35-456',
+            'localNumber' => '5',
+            'phone' => '456654456'
+        ]];
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
-    {
-        //
-    }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Flower  $flower
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Flower $flower)
-    {
-        //
-    }
-
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Flower  $flower
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Flower $flower)
-    {
-        //
-    }
-
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Flower  $flower
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Flower $flower)
-    {
-        //
-    }
-
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Flower  $flower
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Flower $flower)
-    {
-        //
-    }
 }
